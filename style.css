@@ -92,7 +92,7 @@ div:nth-child(58) {
 
 .active-key {
     background-color: rgba(255, 255, 0, 1);
-    animation: shadow  2s infinite ease-in-out;
+    animation: letter-shadow  0.5s 1 ease-in-out;
     
 }
 
@@ -129,8 +129,20 @@ div:nth-child(58) {
     
 }
 
-@keyframes shadow {
-    from {text-shadow: 0 0 3px black;}
-    50% {text-shadow: 0 0 30px black;}
-    to {text-shadow: 0 0 3px black;}
+@keyframes letter-shadow {
+    from {
+        text-shadow: 0 0 3px rgba(30, 144, 255, 0.5);
+        font-size: 16px;
+        border-radius: 5px;
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(30, 144, 255, 0.5);
+        font-size: 14px;
+        border-radius: 50%;
+    }
+    to {
+        text-shadow: 0 0 3px black;
+        font-size: 12px;
+        border-radius: 5px;
+    }
     }
