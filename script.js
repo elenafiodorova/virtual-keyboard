@@ -27,18 +27,6 @@ blockInformation.id = 'blockInformation';
 blockInformation.innerText = 'Клавиатура создана в операционной системе Windows. \n Для переключения языка комбинация: левые shift + alt.';
 document.querySelector('#wrapper').append(blockInformation);
 
-// функция для получения key символов
-//----------------------------------------------------------
-// let keyboard = [];
-// let keyboardNameEn = [];
-// document.onkeydown = function (event) {
-//     console.log(event);
-//     keyboard.push(event.code);
-//     console.log(keyboard);
-//     keyboardNameEn.push(event.key);
-//     console.log(keyboardNameEn);
-// }
-
 const keyboard = [
   'Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8',
   'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace', 'Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR',
@@ -91,12 +79,7 @@ function init() {
 }
 init();
 
-// let checkLnguage = true;
-// let checkCapsLook = true;
-
 const keyboardButtom = keyboardWrapper.querySelectorAll('div');
-// console.log(keyboardButtom);
-// console.log(keyboardButtom.length);
 
 let flagLanguage = 0;
 let flagCapsLook = 1;
@@ -160,24 +143,18 @@ document.querySelectorAll('#keybord .k-key').forEach((elem) => {
     document.querySelectorAll('#keybord .k-key').forEach((element) => {
       element.classList.remove('active-key');
     });
-
-    // const code = this.getAttribute('data');
     this.classList.add('active-key');
-    // console.log(code);
   };
 });
 
 let textInTextarea = '';
 
 document.onkeypress = (element) => {
-  // console.log(event);
-  // let textOnButtonKeyboard;
   if (element.key === 'Enter') {
     textInTextarea = `${textInTextarea}\n`;
   } else {
     textInTextarea += element.key;
   }
-  // console.log(textInTextarea);
   textarea.innerHTML = textInTextarea;
 };
 
@@ -210,7 +187,6 @@ document.getElementById('keybord').onclick = (element) => {
     }
     textInTextarea += textOnButton;
     textarea.innerHTML = textInTextarea;
-    // console.log(textInTextarea.valueOf(textInTextarea));
   }
 };
 
@@ -225,7 +201,7 @@ function runOnKeys(func, ...keys) {
       }
     }
 
-    // во время показа alert, если посетитель отпустит клавиши - не возникнет keyup
+    // если пользователь отпустит клавиши - не возникнет keyup
     // при этом JavaScript 'пропустит' факт отпускания клавиш, а pressed[key] останется true
     // чтобы избежать 'залипания' клавиши -- обнуляем статус всех клавиш, пусть нажимает всё заново
     pressed.clear();
